@@ -1,0 +1,300 @@
+.profile-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.profile-container .user-side {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 15%;
+  height: 100vh;
+  background-color: #181C2D;
+  color: #FFF;
+}
+
+.profile-container .user-side h1 {
+  text-decoration: none;
+  font-family: 'Georgia';
+  color: #FFF;
+  font-size: 18px;
+  padding-right: 6rem;
+  margin-top: 1.5rem;
+}
+
+.profile-container .user-side__photo {
+  width: 100px;
+  height: 100px;
+  -o-object-position: 50 100%;
+     object-position: 50 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 50%;
+  -webkit-box-shadow: 3px 3px 18px 5px rgba(0, 0, 0, 0.15);
+          box-shadow: 3px 3px 18px 5px rgba(0, 0, 0, 0.15);
+  margin-top: 3rem;
+}
+
+.profile-container .user-side__title {
+  margin-top: 1.5rem;
+  font-size: 14px;
+}
+
+.profile-container .user-side__paths {
+  list-style-type: none;
+  font-size: 20px;
+  line-height: 2rem;
+}
+
+.profile-container .user-side__paths .nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding-bottom: 1rem;
+}
+
+.profile-container .user-side__paths .nav img {
+  padding-right: 1rem;
+  cursor: pointer;
+}
+
+.profile-container .user-side__paths .nav li {
+  cursor: pointer;
+}
+
+.profile-container .user-side ul {
+  margin-top: 2.5rem;
+  padding: 0;
+}
+
+.profile-container .main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.profile-container .main .header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-left: 1rem;
+  width: 85vw;
+  height: 4.5rem;
+  -webkit-box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.15);
+          box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.15);
+  background-color: #F6F6F6;
+  text-decoration: none;
+}
+
+.profile-container .main .header h3 {
+  font-family: 'Georgia';
+  color: #272727;
+  margin: 0;
+  font-weight: normal;
+  cursor: pointer;
+}
+
+.profile-container .main .header img {
+  width: 17px;
+}
+
+.profile-container .main .container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.profile-container .main .container .profile {
+  margin: 0 2rem;
+}
+
+.profile-container .main .container .profile h1 {
+  padding-top: 1rem;
+  font-family: 'Open Sans';
+  font-weight: normal;
+}
+
+.profile-container .main .container .profile .form1 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100%;
+}
+
+.profile-container .main .container .profile .form1 h2 {
+  font-family: 'Open Sans';
+  font-weight: normal;
+  font-size: 18px;
+}
+
+.profile-container .main .container .profile .form1 .first {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.profile-container .main .container .profile .form1 .first label {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  font-family: 'Open Sans';
+  margin-top: 1rem;
+  font-size: 14px;
+  margin-right: 2rem;
+}
+
+.profile-container .main .container .profile .form1 .first label input {
+  height: 2rem;
+  margin-top: 0.5rem;
+  font-size: 14px;
+  border: 1px solid #C4CDD5;
+  border-radius: 3px;
+  background-color: #FFF;
+  padding-left: 14px;
+  outline: none;
+  width: 100%;
+}
+
+.profile-container .main .container .profile .form1 .first label select {
+  outline: none;
+  height: 2.4rem;
+  margin-top: 0.5rem;
+  border: 1px solid #C4CDD5;
+  border-radius: 3px;
+  background-color: #FFF;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  font-size: 14px;
+  background: url(../../assets/Dropdown.svg) no-repeat;
+  color: #272727;
+  background-size: 10px;
+  background-position: 97%;
+  padding-left: 1rem;
+  padding-right: 1.5rem;
+  width: 100%;
+}
+
+.profile-container .main .container .profile .form1 .second label {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  font-family: 'Open Sans';
+  margin-top: 1rem;
+  font-size: 14px;
+  width: 97%;
+}
+
+.profile-container .main .container .profile .form1 .second label input {
+  height: 2rem;
+  margin-top: 0.5rem;
+  font-size: 14px;
+  border: 1px solid #C4CDD5;
+  border-radius: 3px;
+  background-color: #FFF;
+  padding-left: 14px;
+  outline: none;
+}
+
+.profile-container .main .container .wants h1 {
+  padding-top: 1rem;
+  font-family: 'Open Sans';
+  font-weight: normal;
+}
+
+.profile-container .main .container .wants .form2 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100%;
+}
+
+.profile-container .main .container .wants .form2 h2 {
+  font-family: 'Open Sans';
+  font-weight: normal;
+  font-size: 18px;
+}
+
+.profile-container .main .container .wants .form2 .first {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.profile-container .main .container .wants .form2 .first label {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  font-family: 'Open Sans';
+  margin-top: 1rem;
+  font-size: 14px;
+  margin-right: 2rem;
+}
+
+.profile-container .main .container .wants .form2 .first label select {
+  outline: none;
+  height: 2.4rem;
+  margin-top: 0.5rem;
+  border: 1px solid #C4CDD5;
+  border-radius: 3px;
+  background-color: #FFF;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  font-size: 14px;
+  background: url(../../assets/Dropdown.svg) no-repeat;
+  color: #272727;
+  background-size: 10px;
+  background-position: 97%;
+  padding-left: 1rem;
+  padding-right: 1.5rem;
+  width: 100%;
+}
+
+.profile-container .main .container .wants .form2 button {
+  border-radius: 3px;
+  background-color: #C24B0C;
+  font-size: 16px;
+  border: none;
+  color: #FFF;
+  cursor: pointer;
+  width: 50%;
+  height: 2.5rem;
+  margin-top: 1rem;
+}
+/*# sourceMappingURL=profile.css.map */

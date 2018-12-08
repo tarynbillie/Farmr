@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="14px" height="8px" viewBox="0 0 14 8" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
+    <title>Shape</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Icon/avatar-dropdown" fill="#ADADAD" fill-rule="nonzero">
+            <g id="data-download-14">
+                <g id="Filled_Icons">
+                    <g id="Group">
+                        <path d="M7,8.001 C6.744,8.001 6.488,7.903 6.293,7.708 L0.293,1.708 L1.707,0.294 L7,5.587 L12.293,0.294 L13.707,1.708 L7.707,7.708 C7.512,7.903 7.256,8.001 7,8.001 Z" id="Shape"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

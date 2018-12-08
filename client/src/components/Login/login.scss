@@ -1,0 +1,91 @@
+$primary: #363c42;
+$secondPrimary: #A9C4B2;
+$accent: #C24B0C;
+$secondAccent: #FBF9F4;
+
+$rare: #FFF;
+$mediumRare:#D3D3D3;
+$mediumWell: #808080;
+$well: #484848;
+$burnt: #272727;
+
+@mixin inputs {
+    height: 2.5rem;
+    width: 91%;
+    fill: $accent;
+    border-radius: 3px;
+    border: 1px solid $mediumRare;
+    outline: none;
+    font-size: 14px;
+    margin-top: 0.3rem;
+}
+
+@mixin btn {
+    margin-top: 1.5rem;
+    background-color: $accent;
+    border: none;
+    border-radius: 3px;
+    color: $rare;
+    font-size: 16px;
+    font-weight: normal;
+    cursor: pointer;
+}
+
+@keyframes fadein {
+    from { opacity: 0.5; }
+    to   { opacity: 1; }
+}
+
+.form-container {
+    display: flex;
+    animation: fadein 0.5s;
+    h1 {
+        text-align: center;
+        font-weight: normal;
+        font-family: 'Georgia';
+        font-size: 34px;
+    }
+    form {
+        display: flex;
+        flex-direction: column;
+        label {
+            display: flex;
+            flex-direction: column;
+            font-family: 'Open Sans';
+            margin-left: 2rem;
+            color: $burnt;
+            font-size: 18px;
+            padding-top: 1rem;
+            input {
+                @include inputs();
+            }
+        }
+        
+        .btn {
+            display: flex;
+            justify-content: center;
+            padding-bottom: 2rem;
+            button {
+                @include btn();
+                height: 38px;
+                width: 85%;
+                transition: all 0.3s ease-in-out;
+                &:hover {
+                    transform: scale(1.1);
+                }
+            }
+        }
+        p {
+            font-family: 'Open Sans';
+            font-size: 14px;
+            text-align: center;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+        .error {
+            text-align: right;
+            font-size: 14px;
+            color: $accent;
+        }
+    }
+}

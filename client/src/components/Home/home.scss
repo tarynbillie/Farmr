@@ -1,0 +1,282 @@
+$primary: #363c42;
+$secondPrimary: #A9C4B2;
+$accent: #C24B0C;
+$secondAccent: #FBF9F4;
+
+$rare: #FFF;
+$mediumRare:#D3D3D3;
+$mediumWell: #808080;
+$well: #484848;
+$burnt: #272727;
+
+@mixin signupBtn {
+    border-radius: 3px;
+    background-color: $accent;
+    font-size: 16px;
+    border: none;
+    color: $rare;
+    cursor: pointer;
+}
+
+@mixin input {
+    margin-top: 0.5rem;
+    font-size: 16px;
+    border: 1px solid #C4CDD5;
+    border-radius: 3px;
+    background-color: #FFFFFF;
+    box-shadow: inset 0 0 0 1px rgba(102,113,123,0.25), inset 0 1px 2px 0 rgba(102,113,123,0.21);
+    padding-left: 14px;
+    outline: none;
+}
+
+@keyframes fadein {
+    from { opacity: 0.5; }
+    to   { opacity: 1; }
+}
+
+.home {
+   
+    .hero-container {
+        display: flex;
+        flex-direction: column;
+        z-index: 0;
+        background: url('../../assets/FarmrHero.jpg');
+        background-size: cover;
+        object-fit: contain;
+        width: 100%;
+        height: 100vh;
+        animation: fadein 2s;
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            height: 80px;
+            margin: 0 8rem;
+            &__link {
+                text-decoration: none;
+                h1 {
+                    font-family: 'Georgia';
+                    color: $rare;
+                    padding-left: 4rem;
+                }
+            }
+            &__nav {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                margin-right: 20rem;
+                width: 35%;
+                h3 {
+                    font-family: 'Open Sans';
+                    font-weight: normal;
+                    color: $rare;
+                    font-size: 16px;
+                    cursor: pointer;
+                }
+                .signup-btn {
+                    @include signupBtn();
+                    height: 36px;
+                    width: 114px;
+                }
+                a {
+                    text-decoration: none;
+                }
+            }
+        }
+        &__blurb {
+            display: flex;
+            flex-direction: column;
+            color: $rare;
+            margin-top: 8rem;
+            margin-left: 12rem;
+            width: 40%;
+            .firstBlurb {
+                font-family: 'Georgia';
+                font-size: 64px;
+                line-height: 77px;
+                margin-bottom: 0;
+            }
+            .secondBlurb {
+                font-family: 'Open Sans';
+                font-size: 20px;
+                line-height: 33px;
+                width: 70%;
+            }
+            .more {
+                display: flex;
+                align-items: center;
+                h3 {
+                    font-family: 'Open Sans';
+                    font-weight: normal;
+                    font-size: 18px;
+                    padding-right: 4rem;
+                    cursor: pointer;
+                }
+                .signup-btn {
+                    @include signupBtn();
+                    height: 48px;	
+                    width: 141px;
+                }
+            }
+        }
+    }
+    
+    .about-container {
+        display: flex;
+        background-color: $rare;
+        height: 85vh;
+        width: 100%;
+        padding-top: 10rem;
+        animation: fadein 2s;
+        &__background {
+            display: flex;
+            height: 426px;
+            width: 100%;
+            background-color: $secondAccent;
+            z-index: 2;
+            .about-us {
+                margin-top: 5rem;
+                margin-left: 12rem;
+                width: 35%;
+                color: $burnt;
+                display: flex;
+                flex-direction: column;
+                h3 {
+                    font-family: 'Open Sans';
+                    font-size: 16px;
+                    margin-bottom: 0;
+                    font-weight: normal;
+                }
+                h4 {
+                    margin-top: 0.5rem;
+                    font-family: 'Georgia';
+                    font-size: 36px;
+                    font-weight: normal;
+                }
+                p {
+                    font-family: 'Open Sans';
+                    font-size: 16px;
+                    line-height: 27px;
+                    margin: 0;
+                }
+            }
+        }
+        img {
+            width: 700px;
+            height: 600px;
+            object-position: 50 100%;
+            object-fit: cover;
+            margin-top: -5rem;
+            margin-left: 5rem;
+            z-index: 5;
+        }
+    }
+    
+    .contact-container {
+        display: flex;
+        background-image: url('../../assets/Footer.jpg');
+        background-size: cover;
+        object-fit: contain;
+        background-repeat: no-repeat;
+        height: 70vh;
+        width: 100%;
+        color: $rare;
+        animation: fadein 2s;
+        .first-column {
+            display: flex;
+            flex-direction: column;
+            width: 30%;
+            margin-left: 12rem;
+            margin-right: 1rem;
+            h2 {
+                font-family: 'Georgia';
+                margin-top: 4rem;
+                margin-bottom: 3.8rem;
+            }
+            &__icon {
+                display: flex;
+                align-content: center;
+                img {
+                    padding-right: 1.5rem;
+                    width: 1.2rem;;
+                }
+                h4 {
+                    font-weight: normal;
+                    font-family: 'Open Sans';
+
+                }
+            }
+        }
+        .second-column {
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            width: 40%;
+            h1 {
+                margin-top: 2.5rem;
+                margin-bottom: 0;
+                font-size: 56px;
+                font-family: 'Georgia';
+                font-weight: normal;
+            }
+            form {
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+                label {
+                    display: flex;
+                    flex-direction: column;
+                    font-family: 'Open Sans';
+                    margin-top: 1rem;
+                    margin-right: 2rem;
+                    font-size: 16px;
+                    width: 100%
+                }
+                input {
+                    @include input();
+                    height: 39px;
+                    width: 15.7rem;
+                    fill: $rare;
+                }
+                .input-message {
+                    @include input();
+                    height: 100px;	
+                    width: 97%;
+                    resize: none;
+                }
+                .first {
+                    display: flex;                
+                }
+                .second {
+                    display: flex;
+                }
+                .btn {
+                    display: flex;
+                    justify-content: flex-end;
+                    button {
+                        margin-top: 1.5rem;
+                        height: 36px;	
+                        width: 220px;
+                        border: none;
+                        border-radius: 3px;	
+                        background-color: $accent;
+                        color: $rare;
+                        font-size: 16px;
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+        .copy {
+            color: white;
+            position: absolute;
+            margin-top: 32rem;;
+            margin-left: 12rem;
+            h5 {
+                margin: 0;
+                font-size: 12px;
+            }
+        }
+    }
+}

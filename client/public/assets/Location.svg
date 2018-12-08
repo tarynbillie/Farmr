@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="27px" viewBox="0 0 20 27" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.5 (67469) - http://www.bohemiancoding.com/sketch -->
+    <title>Location</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="1.1-Desktop-High-Fidelity-2" transform="translate(-204.000000, -1866.000000)" fill="#FFFFFF" fill-rule="nonzero">
+            <g id="Bitmap" transform="translate(0.000000, 1696.000000)">
+                <g id="Left-Contact" transform="translate(204.000000, 103.000000)">
+                    <g id="Group-5" transform="translate(0.000000, 67.000000)">
+                        <path d="M8.97229167,26.1286458 C1.4046875,15.1578646 0,14.0319271 0,10 C0,4.47713542 4.47713542,-2.09610107e-13 10,-2.09610107e-13 C15.5228646,-2.09610107e-13 20,4.47713542 20,10 C20,14.0319271 18.5953125,15.1578646 11.0277083,26.1286458 C10.5310938,26.8460417 9.46885417,26.8459896 8.97229167,26.1286458 Z M10,14.1666667 C12.3011979,14.1666667 14.1666667,12.3011979 14.1666667,10 C14.1666667,7.69880208 12.3011979,5.83333333 10,5.83333333 C7.69880208,5.83333333 5.83333333,7.69880208 5.83333333,10 C5.83333333,12.3011979 7.69880208,14.1666667 10,14.1666667 Z" id="Location"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

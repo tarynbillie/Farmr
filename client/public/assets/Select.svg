@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="8px" height="12px" viewBox="0 0 8 12" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 52.5 (67469) - http://www.bohemiancoding.com/sketch -->
+    <title>D1C52E1A-3948-42DF-A628-A029102F7548</title>
+    <desc>Created with sketchtool.</desc>
+    <defs>
+        <path d="M10,16 L6,12 L14,12 L10,16 Z M10,4 L6,8 L14,8 L10,4 Z" id="path-1"></path>
+    </defs>
+    <g id="Profile-Page" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Profile" transform="translate(-490.000000, -686.000000)">
+            <g transform="translate(200.000000, 64.000000)" id="Grouped-Details-Copy">
+                <g transform="translate(32.000000, 319.000000)">
+                    <g id="Selects-/-Desktop-/-01-Default-Copy-6" transform="translate(0.000000, 267.000000)">
+                        <g id="Variant" transform="translate(0.000000, 24.000000)">
+                            <g id="Polaris-icon/Minor/Mono/Select" transform="translate(252.000000, 8.000000)">
+                                <mask id="mask-2" fill="white">
+                                    <use xlink:href="#path-1"></use>
+                                </mask>
+                                <use id="Icon" fill="#31373D" xlink:href="#path-1"></use>
+                                <g id="Color" mask="url(#mask-2)"></g>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
