@@ -1,33 +1,38 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import '../ChefProfile/profile.scss';
+import Side from '../HeaderSide/SideNav.js';
+import Header from '../HeaderSide/Header.js';
+import ResultsMap from './ResultsMap';
+import './farmerProfile.scss';
 
 export default class FarmProfile extends Component {
   render() {
     return (
-      <div className='profile-container'>
-        <div className='header'>
-          <Link to={'/home'}>
-            <img src='../../assets/arrow_back.svg' alt='back arrow'></img>
-            <h1>Back</h1>
-          </Link>
-        </div>
+      <section className='farmers'>
+        <div className='container'>
+          <Side />
+          <div className='main'>
+            <Header />
+            <div className='avail'>
+              <h1>Available farmers</h1>
+              <div className='search'>
+                <ResultsMap {...this.props} />
+                <div className='search__farms'>
+                <h3>Farms near you</h3>
+                  <h4>HenceForth Farm</h4>
+                  <p>5642 11th Line RR4, Harriston, ON N0G 1Z0</p>
+                  <h4>Reroot Organic Farm</h4>
+                  <p>5642 11 Line, Harriston, ON N0G 1Z0</p>
+                  <h4>Aldergrove Farm</h4>
+                  <p>211537 Baseline Rd, Mount Forest, ON N0G 2L0</p>
+                  <h4>Maple Woods Orgnaic Farm</h4>
+                  <p>335 Sideroad 5 Greenock, Brockton, ON N0G 2V0</p>
+                </div>
 
-        <div className='user-side'>
-          <img src='../assets/DSC_2366.jpg' alt='user' className='user-side__photo'  />
-          {/* USERICON - this.state.userImage */}
-          {/* user.username */}
-          <span className='user-side__title'>Taryn Li</span>
-          <ul className='user-side__paths'>
-            <Link to='/settings'>
-              <li>Profile</li>
-            </Link>
-            <li>Chefs</li>
-            <li>Invoices</li>
-            <li>Reminders</li>
-          </ul>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
+      </section>
     )
   }
 }

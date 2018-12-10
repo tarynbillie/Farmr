@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import {Redirect} from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 // import ChefProfile from '../ChefProfile/ChefProfile';
 import './login.scss';
 
@@ -42,10 +42,10 @@ class Login extends Component {
             token: 'wpiefjaw;oeifjaw;oeifj.oiwaejfoawiejfo.owaiefoewij'
           }
         */
-         localStorage.setItem('token', data.token);
-         this.setState({
-           isLoggedIn: data.login
-                   });
+        localStorage.setItem('token', data.token);
+        this.setState({
+          isLoggedIn: data.login
+        });
       })
       .catch(err => {
         console.log(err);
@@ -89,11 +89,11 @@ class Login extends Component {
           <form onSubmit={this.formSubmit} formReset={this.formReset}>
             <label>
               Email address
-                      <input type='email' name='email' value={this.state.email} onChange={this.handleChange}/>
+                      <input type='email' name='email' value={this.state.email} onChange={this.handleChange} />
             </label>
             <label>
               Password
-                        <input type='password' name='password' value={this.state.password} onChange={this.handleChange}/>
+                        <input type='password' name='password' value={this.state.password} onChange={this.handleChange} />
               <div className='error'> {this.state.errorMsg2} </div>
             </label>
             <p>Forgot your password?</p>
@@ -109,11 +109,11 @@ class Login extends Component {
     const { isLoggedIn } = this.state
 
     // Handle the Signup/Login
-    if (!isLoggedIn){ 
-      return this.renderLogin() 
+    if (!isLoggedIn) {
+      return this.renderLogin()
     } else {
       return (
-        <Redirect to='/profile'/>
+        <Redirect to='/profile' />
       )
 
     }

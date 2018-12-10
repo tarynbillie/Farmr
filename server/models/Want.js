@@ -2,13 +2,21 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const WantSchema = new Schema ({
-    name: {
+    leaf: {
         type: String,
-        required: true
+        required: false
     },
-    price: {
-        type: Number,
-        required: true
+    root: {
+        type: String,
+        required: false
+    },
+    legume: {
+        type: String,
+        required: false
+    },
+    night: {
+        type: String,
+        required: false,
     },
     date_created: {
         type: Date,

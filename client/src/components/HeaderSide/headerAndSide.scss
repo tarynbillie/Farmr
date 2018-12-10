@@ -1,0 +1,167 @@
+$primary: #181C2D;
+$secondPrimary: #A9C4B2;
+$accent: #C24B0C;
+$secondAccent: #FBF9F4;
+
+$rare: #FFF;
+$mediumRare: #F6F6F6;
+$mediumWell: #C4CDD5;
+$well: #484848;
+$burnt: #272727;
+
+@mixin userIcon {
+    width: 100px;
+    height: 100px;
+    object-position: 50 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    box-shadow: 3px 3px 18px 5px rgba(0, 0, 0, 0.15);
+}
+
+@mixin input {
+    height: 2rem;
+    margin-top: 0.5rem;
+    font-size: 14px;
+    border: 1px solid $mediumWell;
+    border-radius: 3px;
+    background-color: $rare;
+    padding-left: 14px;
+    outline: none;
+}
+
+@mixin select {
+    outline: none;
+    height: 2.4rem;
+    margin-top: 0.5rem;
+    border: 1px solid $mediumWell;
+    border-radius: 3px;
+    background-color: $rare;
+    appearance: none;
+    font-size: 14px;
+}
+
+@mixin label {
+    display: flex;
+    flex-direction: column;
+    font-family: 'Open Sans';
+    margin-top: 1rem;
+    font-size: 14px;
+}
+
+@mixin btn {
+    border-radius: 3px;
+    background-color: $accent;
+    font-size: 16px;
+    border: none;
+    color: $rare;
+    cursor: pointer;
+}
+
+@keyframes spin {
+    from {
+        transform:rotate(0deg);
+    }
+    to {
+        transform:rotate(360deg);
+    }
+}
+
+.container {
+    display: flex;
+    .user-side {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 15%;
+        height: 100vh;
+        background-color: $primary;
+        color: $rare;
+        &__link {
+            text-decoration: none;
+        }
+        h1 {
+            font-family: 'Georgia';
+            color: $rare;
+            font-size: 18px;
+            padding-right: 6rem;
+            margin-top: 1.5rem;
+        }
+        &__photo {
+            @include userIcon();
+            margin-top: 3rem;
+        }
+        &__title {
+            margin-top: 1.5rem;
+            font-size: 14px;
+        }
+        &__paths {
+            list-style-type: none;
+            font-size: 20px;
+            line-height: 2rem;
+            .nav {
+                display: flex;
+                padding-bottom: 1rem;
+                img {
+                    padding-right: 1rem;
+                    cursor: pointer;
+                }
+                li {
+                    cursor: pointer;
+                }
+                &__link {
+                    display: flex;
+                    text-decoration: none;
+                    color: $rare;
+                }
+                
+            }
+        }
+        ul {
+            margin-top: 2.5rem;
+            padding: 0;
+        }
+
+    }
+    .main {
+        display: flex;
+        flex-direction: column;
+        .header {
+            display: flex;
+            align-items: center;
+            padding-left: 1rem;
+            width: 85vw;
+            height: 4.5rem;
+            box-shadow: 0 3px 8px 0 rgba(0,0,0,0.15);
+            background-color: $mediumRare;
+            text-decoration: none;
+            h3 {
+                font-family: 'Georgia';
+                color: $burnt;
+                margin: 0;
+                font-weight: normal;
+                cursor: pointer;
+                &:hover {
+                    font-weight: bold;
+                }
+            }
+            img {
+                width: 17px;
+            }
+            &__gear {
+                width: 93%;
+                display: flex;
+                justify-content: flex-end;
+                img {
+                    width: 25px;
+                    cursor: pointer;
+                    &:hover {
+                        animation: spin;
+                        animation-duration: 5000ms;
+                        animation-iteration-count: infinite;
+                        animation-timing-function: linear;
+                    }
+                }
+            }
+        }
+    }
+}

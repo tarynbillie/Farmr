@@ -29,38 +29,10 @@ db. once('open', () => {
 
 // configuration variable is all caps
 const PORT = process.env.PORT || 8080;
-const SECRET_KEY = process.env.SECRET_KEY
+const SECRET_KEY = process.env.SECRET_KEY || "v0ei4dhfwjokb9s19qt6rt";
 
 // this line reads all key value pairs in .env folder
 dotenv.config(); 
-
-// const want = new Want({
-//     name: 'Bok Choy',
-//     price: 3.00
-// });
-
-// want.save()
-//     .then(savedWant => {
-//         console.log(savedWant)
-//     })
-//     .catch(err => {
-//         console.log(err);
-//     })
-//////////////////////////////////////////////////
-
-// const crop = new Crop({
-//     name: 'Bok Choy',
-//     price: 3.00,
-//     date_available: '2019/06/24'
-// });
-
-// crop.save()
-//     .then(savedCrop => {
-//         console.log(savedCrop);
-//     })
-//     .catch(err => {
-//         console.log(err);
-//     })
 
 ///////////////////////////////////////////////////
 
@@ -91,11 +63,11 @@ app.post('/register', (req, res)=>{
             return res.status(500).json({'msg': 'we messed up, oops', login:false})
         }
       newUser.password = hash;
-    let nuUser = new Profile(newUser)
-    nuUser.save()
+    let User = new Profile(newUser)
+    User.save()
     .then(savedUser => {
         console.log(savedUser);
-        res.json({"msg": "success"});
+        res.status(201).json({"msg": "success"});
     })
     .catch(err => {
         console.log(err);
@@ -105,20 +77,17 @@ app.post('/register', (req, res)=>{
 });
 
 app.post('/login', (req, res) => {
-    console.log(req.body)
     const { email, password } = req.body
-    let user = '';
+    // let user = '';
     
     Profile.findOne({
         email: email
     })
-    .then((data) => {
-        user = data
-        console.log('user', user)
+    .then(user => {
         bcrypt.compare(password, user.password, (err, result) => {
             if(result){
               // passwords match! GENERATE TOKEN AND SEND BACK!
-              const token = jwt.sign({subject: user.email, subject: user.password}, SECRET_KEY);
+              const token = jwt.sign({subject: email}, SECRET_KEY);
               res.json({token: token, login:true})
             } 
             else{
@@ -132,7 +101,9 @@ app.post('/login', (req, res) => {
   // middleware function
   function authorize(req, res, next) {
       // retrieve token from header with name 'authorization'
-        const token = req.headers.authorization
+        const { authorization } = req.headers;
+        
+        const token = authorization.split('Bearer ')[1];
       // if no toek, reject with 401 status
       if(!token) {
           return res.status(401).json({'msg': 'no token provided'});
@@ -145,24 +116,86 @@ app.post('/login', (req, res) => {
       }
       // else if it IS authentic, store identtiy at req.user and call next
       req.user = decoded;
-    //   calling next() signals we are done, call next request handler function
+        //   calling next() signals we are done, call next request handler function
       next();
     }
 
     // calling middleare inside
-app.get('/profile', authorize, (req, res) => {
+app.get('/profile', authorize, (req, res, next) => {
     let email = req.user.subject;
     Profile.findOne({
         email: email
     })
-    .then(loggedInUser => {
-        res.json(loggedInUser);
-    })
+    .populate('want_id')
+    .exec((err, profile) => {
+        if(err) {
+            return next(err);
+        }
+        res.json(profile); 
+    });
 });
 
 // app.get('/profile', (req, res) => {
 //   res.json(req.decoded)
 // })
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// wantCreate = function(req, res, next) {
+//     let want = new Want({
+//       ...req.body
+//     });
+//     want.save(err => {
+//       if (err) {
+//         return next(err);
+//       }
+//       console.log(want)
+//       res.status(201).send({ 'msg': 'a new want has been created!!' })
+//     });
+//     Profile.findById(want.profile_id)
+//       .then(profile => {
+//         profile.want_id.push(want._id);
+//         return profile.save();
+//     })
+//       .catch(err => {
+//         console.log(err);
+//     });
+// };
+
+app.post('/want', (req, res,next) => {
+    let want = new Want({
+        ...req.body
+      });
+      want.save(err => {
+        if (err) {
+          return next(err);
+        }
+        console.log(want)
+        res.status(201).send({ 'msg': 'a new want has been created!!' })
+      });
+      Profile.findById(want.profile_id)
+        .then(profile => {
+          profile.want_id.push(want._id);
+          return profile.save();
+      })
+        .catch(err => {
+          console.log(err);
+      });
+});
+
+
+
+// app.get('/want', (req, res) => {
+//     Profile.findById(want.profile_id)
+//         .then()
+// })
+
+
+// app.delete('/want/deleteItem/:id', (req,res) => {
+//     let orderIndex = want.findIndex(item => item.productID === Number(req.params.id));
+//     invList.splice(itemIndex, 1);
+//     res.json({msg: 'item deleted from inventory'});
+// });
 
 app.listen(PORT, (err) => {
     if (err) {

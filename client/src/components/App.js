@@ -4,6 +4,8 @@ import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-d
 import Home from './Home/Home';
 import ChefProfile from './ChefProfile/ChefProfile';
 import FarmProfile from './FarmerProfile/FarmProfile';
+import Invoice from './Invoices/Invoice';
+import Reminder from './Reminders/Reminder';
 // import Settings from './ChefProfile/Settings';
 
 
@@ -15,7 +17,10 @@ class App extends Component {
           <Switch>
             <Route path={'/home'} exact component={Home} />
             <Route path={'/profile'} exact component={ChefProfile} />
-            <Route path={'/profile/farmer/:id'} exact component={FarmProfile} />
+            <Route path={'/farmers'} exact component={FarmProfile} />
+            <Route path={'/invoice'} exact component={Invoice} />
+            <Route path={'/reminder'} exact component={Reminder} />
+            {/* <Route path={'/profile/farmer/:id'} exact component={FarmProfile} /> */}
             <Route path={'/'} render={() => <Redirect to='/home' />} />
             {/* <main>
               <ChefProfile/>

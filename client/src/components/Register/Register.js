@@ -34,7 +34,6 @@ export default class Register extends Component {
         fetch('http://localhost:8080/register', init)
             .then(resp => resp.json())
             .then(data => {
-                console.log(data.username);
                 this.setState({
                     isSignUp: true
                 });

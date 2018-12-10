@@ -1,10 +1,26 @@
-.profile-container {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+@-webkit-keyframes spin {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
 }
 
-.profile-container .user-side {
+@keyframes spin {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+.user-side {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -21,8 +37,11 @@
   color: #FFF;
 }
 
-.profile-container .user-side h1 {
+.user-side__link {
   text-decoration: none;
+}
+
+.user-side h1 {
   font-family: 'Georgia';
   color: #FFF;
   font-size: 18px;
@@ -30,7 +49,7 @@
   margin-top: 1.5rem;
 }
 
-.profile-container .user-side__photo {
+.user-side__photo {
   width: 100px;
   height: 100px;
   -o-object-position: 50 100%;
@@ -43,39 +62,47 @@
   margin-top: 3rem;
 }
 
-.profile-container .user-side__title {
+.user-side__title {
   margin-top: 1.5rem;
   font-size: 14px;
 }
 
-.profile-container .user-side__paths {
+.user-side__paths {
   list-style-type: none;
   font-size: 20px;
   line-height: 2rem;
 }
 
-.profile-container .user-side__paths .nav {
+.user-side__paths .nav {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   padding-bottom: 1rem;
 }
 
-.profile-container .user-side__paths .nav img {
+.user-side__paths .nav img {
   padding-right: 1rem;
   cursor: pointer;
 }
 
-.profile-container .user-side__paths .nav li {
+.user-side__paths .nav li {
   cursor: pointer;
 }
 
-.profile-container .user-side ul {
+.user-side__paths .nav__link {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  text-decoration: none;
+  color: #FFF;
+}
+
+.user-side ul {
   margin-top: 2.5rem;
   padding: 0;
 }
 
-.profile-container .main {
+.main {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -85,7 +112,7 @@
           flex-direction: column;
 }
 
-.profile-container .main .header {
+.main .header {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -101,7 +128,7 @@
   text-decoration: none;
 }
 
-.profile-container .main .header h3 {
+.main .header h3 {
   font-family: 'Georgia';
   color: #272727;
   margin: 0;
@@ -109,27 +136,57 @@
   cursor: pointer;
 }
 
-.profile-container .main .header img {
+.main .header h3:hover {
+  font-weight: bold;
+}
+
+.main .header img {
   width: 17px;
 }
 
-.profile-container .main .container {
+.main .header__gear {
+  width: 93%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.main .header__gear img {
+  width: 25px;
+  cursor: pointer;
+}
+
+.main .header__gear img:hover {
+  -webkit-animation: spin;
+          animation: spin;
+  -webkit-animation-duration: 5000ms;
+          animation-duration: 5000ms;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+}
+
+.main .container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
-.profile-container .main .container .profile {
+.main .container .profile {
   margin: 0 2rem;
 }
 
-.profile-container .main .container .profile h1 {
+.main .container .profile h1 {
   padding-top: 1rem;
   font-family: 'Open Sans';
   font-weight: normal;
 }
 
-.profile-container .main .container .profile .form1 {
+.main .container .profile .form1 {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -140,19 +197,31 @@
   width: 100%;
 }
 
-.profile-container .main .container .profile .form1 h2 {
+.main .container .profile .form1 h2 {
   font-family: 'Open Sans';
   font-weight: normal;
   font-size: 18px;
 }
 
-.profile-container .main .container .profile .form1 .first {
+.main .container .profile .form1 button {
+  border-radius: 3px;
+  background-color: #C24B0C;
+  font-size: 16px;
+  border: none;
+  color: #FFF;
+  cursor: pointer;
+  margin-top: 2rem;
+  width: 95%;
+  height: 2.5rem;
+}
+
+.main .container .profile .form1 .first {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
-.profile-container .main .container .profile .form1 .first label {
+.main .container .profile .form1 .first label {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -166,7 +235,7 @@
   margin-right: 2rem;
 }
 
-.profile-container .main .container .profile .form1 .first label input {
+.main .container .profile .form1 .first label input {
   height: 2rem;
   margin-top: 0.5rem;
   font-size: 14px;
@@ -178,7 +247,7 @@
   width: 100%;
 }
 
-.profile-container .main .container .profile .form1 .first label select {
+.main .container .profile .form1 .first label select {
   outline: none;
   height: 2.4rem;
   margin-top: 0.5rem;
@@ -198,7 +267,7 @@
   width: 100%;
 }
 
-.profile-container .main .container .profile .form1 .second label {
+.main .container .profile .form1 .second label {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -212,7 +281,7 @@
   width: 97%;
 }
 
-.profile-container .main .container .profile .form1 .second label input {
+.main .container .profile .form1 .second label input {
   height: 2rem;
   margin-top: 0.5rem;
   font-size: 14px;
@@ -223,13 +292,13 @@
   outline: none;
 }
 
-.profile-container .main .container .wants h1 {
+.main .container .wants h1 {
   padding-top: 1rem;
   font-family: 'Open Sans';
   font-weight: normal;
 }
 
-.profile-container .main .container .wants .form2 {
+.main .container .wants .form2 {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -240,19 +309,19 @@
   width: 100%;
 }
 
-.profile-container .main .container .wants .form2 h2 {
+.main .container .wants .form2 h2 {
   font-family: 'Open Sans';
   font-weight: normal;
   font-size: 18px;
 }
 
-.profile-container .main .container .wants .form2 .first {
+.main .container .wants .form2 .first {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
-.profile-container .main .container .wants .form2 .first label {
+.main .container .wants .form2 .first label {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -266,7 +335,7 @@
   margin-right: 2rem;
 }
 
-.profile-container .main .container .wants .form2 .first label select {
+.main .container .wants .form2 .first label select {
   outline: none;
   height: 2.4rem;
   margin-top: 0.5rem;
@@ -286,7 +355,7 @@
   width: 100%;
 }
 
-.profile-container .main .container .wants .form2 button {
+.main .container .wants .form2 button {
   border-radius: 3px;
   background-color: #C24B0C;
   font-size: 16px;
@@ -296,5 +365,80 @@
   width: 50%;
   height: 2.5rem;
   margin-top: 1rem;
+}
+
+.main .container .orders {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-family: 'Open Sans';
+  font-size: 12px;
+  margin-top: 3rem;
+  -webkit-box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.15);
+          box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.15);
+}
+
+.main .container .orders table {
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 3px;
+  background-color: #F6F6F6;
+}
+
+.main .container .orders table thead {
+  font-size: 14px;
+  font-weight: normal;
+  color: #484848;
+  margin-left: 1rem;
+}
+
+.main .container .orders table thead tr {
+  text-align: left;
+  height: 70px;
+}
+
+.main .container .orders table tbody {
+  font-size: 12px;
+}
+
+.main .container .orders table tbody tr {
+  height: 70px;
+  font-weight: 600;
+}
+
+.main .container .orders table tbody tr td {
+  margin: 0;
+}
+
+.main .container .orders table tbody tr td .td-name {
+  color: #C24B0C;
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.main .container .orders table tbody tr:nth-child(odd) {
+  background-color: white;
+}
+
+.td-left {
+  padding-left: 35px;
+}
+
+.orders__delete-icon {
+  background-image: url("../../assets/deleteIcon.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 22px;
+  width: 22px;
+  cursor: pointer;
+}
+
+.orders__delete-icon:hover {
+  background-image: url("../../assets/deleteIcon-hover.svg");
 }
 /*# sourceMappingURL=profile.css.map */

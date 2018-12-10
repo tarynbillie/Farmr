@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAWA,AAAA,SAAS,CAAC;EACN,WAAW,EAAE,IAAI;CAKpB;;AAND,AAEI,SAFK,CAEL,EAAE,CAAC;EACC,WAAW,EAAE,WAAW;EACxB,WAAW,EAAE,MAAM;CACtB",
+    "sources": [
+        "reminder.scss"
+    ],
+    "names": [],
+    "file": "reminder.css"
+}

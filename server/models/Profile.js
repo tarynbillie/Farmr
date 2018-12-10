@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const Want = require('./Want');
 const Schema = mongoose.Schema;
 
 const ProfileSchema = new Schema ({
@@ -19,7 +20,7 @@ const ProfileSchema = new Schema ({
         required: true,
         default: new Date()
     },
-    wants: [{
+    want_id: [{
         type: Schema.Types.ObjectId,
         ref: 'Want'
     }]
