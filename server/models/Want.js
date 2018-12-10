@@ -2,21 +2,21 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const WantSchema = new Schema ({
-    leaf: {
+    name: {
         type: String,
         required: false
     },
-    root: {
+    amount: {
+        type: Number,
+        required: false
+    },
+    units: {
         type: String,
         required: false
     },
-    legume: {
-        type: String,
-        required: false
-    },
-    night: {
-        type: String,
-        required: false,
+    fufilled: {
+        type: Boolean,
+        default: false
     },
     date_created: {
         type: Date,

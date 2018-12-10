@@ -27,31 +27,15 @@ db. once('open', () => {
     console.log('Connected to db at /data/db/')
 });
 
+// this line reads all key value pairs in .env folder
+dotenv.config(); 
+
 // configuration variable is all caps
 const PORT = process.env.PORT || 8080;
 const SECRET_KEY = process.env.SECRET_KEY || "v0ei4dhfwjokb9s19qt6rt";
 
-// this line reads all key value pairs in .env folder
-dotenv.config(); 
 
 ///////////////////////////////////////////////////
-
-// app.post('/home', (req, res) => {
-//     Profile.findOne
-// })
-
-// Profile.findById(req.params)
-
-// Profile.
-//   findById('5c082f9377ff9b0b757a2318').
-//   populate('name').
-//   exec(function (err, profile) {
-//     if (err) return handleError(err);
-//     console.log('The author is %s', profile.name);
-//     // prints "The author is Ian Fleming"
-//   });
-
-
 
 const users = [];
 
@@ -182,7 +166,6 @@ app.post('/want', (req, res,next) => {
           console.log(err);
       });
 });
-
 
 
 // app.get('/want', (req, res) => {

@@ -21,8 +21,14 @@ export default class HeaderAndSide extends Component {
                     </div>
                     <div className='nav'>
                         <Link to={'/farmers'} className='nav__link'>
+                            <img src='../assets/User.svg' alt='user icon' />
+                            <li>Farmer profile</li>
+                        </Link>
+                    </div>
+                    <div className='nav'>
+                        <Link to={'/farmerlocation'} className='nav__link'>
                             <img src='../assets/Wheat.svg' alt='wheat icon' />
-                            <li>Farmers</li>
+                            <li>Location</li>
                         </Link>
                     </div>
                     <div className='nav'>

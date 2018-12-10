@@ -1,0 +1,44 @@
+$primary: #181C2D;
+$secondPrimary: #A9C4B2;
+$accent: #C24B0C;
+$secondAccent: #FBF9F4;
+
+$rare: #FFF;
+$mediumRare: #F6F6F6;
+$mediumWell: #C4CDD5;
+$well: #484848;
+$burnt: #272727;
+
+.main {
+    .avail {
+        margin: 0 4rem;
+        h1 {
+            padding-top: 1rem;
+            font-family: 'Open Sans';
+            font-weight: normal;
+        }
+        .search {
+            display: flex;
+            &__farms {
+                width: 40%;
+                margin-left: 25rem;
+                font-family: "Open Sans";
+                display: flex;
+                flex-direction: column;
+                h3 {
+                    border-bottom: thin solid $mediumWell;
+                    font-weight: normal;
+                }
+                h4 {
+                    margin: 0;
+                }
+                p {
+                    font-family: "Open Sans";
+                    padding-bottom: 1rem;
+                    font-size: 14px;
+                    margin: 0;
+                }
+            }
+        }
+    }
+}

@@ -16,10 +16,9 @@ export default class ChefProfile extends Component {
         userInfo: {
             want_id: []
         },
-        leaf: '',
-        root: '',
-        legume: '',
-        night: '',
+        name: '',
+        amount: '',
+        units: '',
         order: []
     }
 
@@ -67,9 +66,10 @@ export default class ChefProfile extends Component {
             }
         };
         fetch(`${baseUrl}/want`, init)
-        // .then(() => {
-        //     this.props.handleClose();
-        // })
+            .then((response) => {
+                return response.json();
+            })
+        // console.log(response)
     }
 
     handleChange = (e) => {
@@ -80,10 +80,9 @@ export default class ChefProfile extends Component {
 
     formReset() {
         this.setState({
-            leaf: '',
-            root: '',
-            legume: '',
-            night: ''
+            name: '',
+            amount: '',
+            units: ''
         })
     }
 
@@ -94,11 +93,9 @@ export default class ChefProfile extends Component {
                 .map((item) => {
                     return <Order
                         // id={item.productID}
-                        leaf={item.leaf}
-                        root={item.root}
-                        legume={item.legume}
-                        night={item.night}
-                        quantity={item.quantity}
+                        name={item.name}
+                        amount={item.amount}
+                        units={item.units}
                         date_created={item.date_created}
                         delete={this.deleteItem}
                     />
@@ -106,14 +103,13 @@ export default class ChefProfile extends Component {
             // const { isLoading, userInfo } = this.state
 
             return (
-                <section>
                     <div className='container'>
-                        <Side/>
+                        <Side />
                         <div className='main'>
-                            <Header/>
+                            <Header />
                             <div className='container'>
                                 <div className='profile'>
-                                    <h1>Profile</h1>
+                                    <h1>Chef Profile</h1>
                                     <form className='form1'>
                                         <h2>Restaurant details</h2>
                                         <div className='first'>
@@ -172,30 +168,18 @@ export default class ChefProfile extends Component {
                                         <h2>What are you looking for?</h2>
                                         <div className='first'>
                                             <label>
-                                                Leafy Greens
-                                        <select name='leaf' value={this.state.leaf} onChange={this.handleChange}>
-                                                    <option>Select</option>
+                                                Produce
+                                        <select name='name' value={this.state.name} onChange={this.handleChange}>
+                                                    <option>Select Produce</option>
                                                     <option>Kale</option>
                                                     <option>Romaine</option>
                                                     <option>Spring Mix</option>
                                                     <option>Spinach</option>
                                                     <option>Baby Spinach</option>
-                                                </select>
-                                            </label>
-                                            <label>
-                                                Root
-                                        <select name='root' value={this.state.root} onChange={this.handleChange}>
-                                                    <option>Select</option>
                                                     <option>Turnip</option>
                                                     <option>Raddish</option>
                                                     <option>Beet</option>
                                                     <option>Carrot</option>
-                                                </select>
-                                            </label>
-                                            <label>
-                                                Legumes
-                                        <select name='legume' value={this.state.legume} onChange={this.handleChange}>
-                                                    <option>Select</option>
                                                     <option>Kidney</option>
                                                     <option>Pinto</option>
                                                     <option>Peas</option>
@@ -205,18 +189,32 @@ export default class ChefProfile extends Component {
                                                 </select>
                                             </label>
                                             <label>
-                                                Nightshade
-                                        <select name='night' value={this.state.night} onChange={this.handleChange}>
-                                                    <option>Select</option>
-                                                    <option>Tomato</option>
-                                                    <option>Cherry Tomato</option>
-                                                    <option>Potato</option>
-                                                    <option>Eggplant</option>
-                                                    <option>Bell Peppers</option>
+                                                Amount
+                                                <select name='amount' value={this.state.amount} onChange={this.handleChange}>
+                                                    <option>Select Amount</option>
+                                                    <option>1</option>
+                                                    <option>2</option>
+                                                    <option>3</option>
+                                                    <option>4</option>
+                                                    <option>5</option>
+                                                    <option>6</option>
+                                                    <option>7</option>
+                                                    <option>8</option>
+                                                    <option>9</option>
+                                                    <option>10</option>
+                                                </select>
+                                            </label>
+                                            <label>
+                                                Units
+                                                <select name='units' value={this.state.units} onChange={this.handleChange}>
+                                                    <option>Select Unit</option>
+                                                    <option>lbs</option>
+                                                    <option>bunches</option>
+                                                    <option>heads</option>
                                                 </select>
                                             </label>
                                         </div>
-                                        <button type='submit'>Add</button>
+                                        <button type='submit' onSubmit={this.formSubmit}>Add</button>
                                     </form>
                                     <div className='orders'>
                                         <table>
@@ -224,74 +222,20 @@ export default class ChefProfile extends Component {
                                                 <tr>
                                                     <th className='td-left'>
                                                         Item
-                                                </th>
+                                                    </th>
                                                     <th>
                                                         Quantity
-                                                </th>
+                                                    </th>
+                                                    <th>
+                                                        Units
+                                                    </th>
                                                     <th>
                                                         Last Ordered
-                                                </th>
+                                                    </th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 {rows}
-                                                {/* <tr>
-                                                    <td className='td-left'>
-                                                    {this.state.leaf}
-                                                    </td>
-                                                    <td>
-                                                    {this.state.legume}
-                                                    {/* {this.props.quantity} */}
-                                                    {/* </td>
-                                                    <td>
-                                                    {this.state.root}
-                                                    </td>
-                                                    <td>
-                                                        <div className='orders__delete-icon' id={this.props.id} onClick={this.props.delete}></div>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td className='td-left'>
-                                                        Eggplant
-                                                    </td>
-                                                    <td>
-                                                        3 lbs
-                                                    </td>
-                                                    <td>
-                                                        09/24/2019
-                                                    </td>
-                                                    <td>
-                                                        <div className='orders__delete-icon' id={this.props.id} onClick={this.props.delete}></div>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td className='td-left'>
-                                                        Carrot
-                                                    </td>
-                                                    <td>
-                                                        5 lbs
-                                                    </td>
-                                                    <td>
-                                                        09/24/2019
-                                                    </td>
-                                                    <td>
-                                                        <div className='orders__delete-icon' id={this.props.id} onClick={this.props.delete}></div>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td className='td-left'>
-                                                        Tomato
-                                                    </td>
-                                                    <td>
-                                                        2 lbs
-                                                    </td>
-                                                    <td>
-                                                        09/24/2019
-                                                    </td>
-                                                    <td>
-                                                        <div className='orders__delete-icon' id={this.props.id} onClick={this.props.delete}></div>
-                                                    </td>
-                                                </tr> */} 
                                             </tbody>
                                         </table>
                                     </div>
@@ -299,7 +243,6 @@ export default class ChefProfile extends Component {
                             </div>
                         </div>
                     </div>
-                </section>
             )
         }
     }
