@@ -4,15 +4,15 @@ const Schema = mongoose.Schema;
 const WantSchema = new Schema ({
     name: {
         type: String,
-        required: false
+        required: true
     },
     amount: {
         type: Number,
-        required: false
+        required: true
     },
     units: {
         type: String,
-        required: false
+        required: true
     },
     fufilled: {
         type: Boolean,

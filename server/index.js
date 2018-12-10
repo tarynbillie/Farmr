@@ -82,29 +82,29 @@ app.post('/login', (req, res) => {
     })
 })
 
-  // middleware function
-  function authorize(req, res, next) {
-      // retrieve token from header with name 'authorization'
-        const { authorization } = req.headers;
-        
-        const token = authorization.split('Bearer ')[1];
-      // if no toek, reject with 401 status
-      if(!token) {
-          return res.status(401).json({'msg': 'no token provided'});
-      }
-      // if there is a token, try to verifty it
-      const decoded = jwt.verify(token, SECRET_KEY);
-      // if it is NOT aythentic reject with 401
-      if(!decoded) {
-          return res.status(401).json({'msg': 'invalid token'});
-      }
-      // else if it IS authentic, store identtiy at req.user and call next
-      req.user = decoded;
-        //   calling next() signals we are done, call next request handler function
-      next();
+// middleware function
+function authorize(req, res, next) {
+    // retrieve token from header with name 'authorization'
+    const { authorization } = req.headers;
+    
+    const token = authorization.split('Bearer ')[1];
+    // if no toek, reject with 401 status
+    if(!token) {
+        return res.status(401).json({'msg': 'no token provided'});
     }
+    // if there is a token, try to verifty it
+    const decoded = jwt.verify(token, SECRET_KEY);
+    // if it is NOT aythentic reject with 401
+    if(!decoded) {
+        return res.status(401).json({'msg': 'invalid token'});
+    }
+    // else if it IS authentic, store identtiy at req.user and call next
+    req.user = decoded;
+    //   calling next() signals we are done, call next request handler function
+    next();
+}
 
-    // calling middleare inside
+// calling middleare inside
 app.get('/profile', authorize, (req, res, next) => {
     let email = req.user.subject;
     Profile.findOne({
@@ -119,32 +119,7 @@ app.get('/profile', authorize, (req, res, next) => {
     });
 });
 
-// app.get('/profile', (req, res) => {
-//   res.json(req.decoded)
-// })
-
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// wantCreate = function(req, res, next) {
-//     let want = new Want({
-//       ...req.body
-//     });
-//     want.save(err => {
-//       if (err) {
-//         return next(err);
-//       }
-//       console.log(want)
-//       res.status(201).send({ 'msg': 'a new want has been created!!' })
-//     });
-//     Profile.findById(want.profile_id)
-//       .then(profile => {
-//         profile.want_id.push(want._id);
-//         return profile.save();
-//     })
-//       .catch(err => {
-//         console.log(err);
-//     });
-// };
 
 app.post('/want', (req, res,next) => {
     let want = new Want({
@@ -169,9 +144,8 @@ app.post('/want', (req, res,next) => {
 
 
 // app.get('/want', (req, res) => {
-//     Profile.findById(want.profile_id)
-//         .then()
-// })
+//     res.json(profile)
+// });
 
 
 // app.delete('/want/deleteItem/:id', (req,res) => {

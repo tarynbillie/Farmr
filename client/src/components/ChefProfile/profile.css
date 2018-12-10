@@ -51,6 +51,13 @@
   margin-top: 2rem;
   width: 95%;
   height: 2.5rem;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+.main .container .profile .form1 button:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
 }
 
 .main .container .profile .form1 .first {
@@ -203,6 +210,13 @@
   width: 50%;
   height: 2.5rem;
   margin-top: 1rem;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+.main .container .wants .form2 button:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
 }
 
 .main .container .orders {
@@ -229,8 +243,8 @@
 .main .container .orders table thead {
   font-size: 14px;
   font-weight: normal;
-  color: #484848;
   margin-left: 1rem;
+  color: #272727;
 }
 
 .main .container .orders table thead tr {
@@ -239,7 +253,8 @@
 }
 
 .main .container .orders table tbody {
-  font-size: 12px;
+  font-size: 14px;
+  color: #484848;
 }
 
 .main .container .orders table tbody tr {

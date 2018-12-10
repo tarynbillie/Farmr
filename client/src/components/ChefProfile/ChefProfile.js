@@ -21,12 +21,12 @@ export default class ChefProfile extends Component {
         units: '',
         order: []
     }
-
-    componentWillMount() {
-        // here grab token from localStorager 
+    
+    fetch = () => {
         const init = {
             method: "GET",
             headers: {
+                // here grab token from localStorager 
                 authorization: `Bearer ${localStorage.getItem('token')}`
             }
         }
@@ -35,28 +35,26 @@ export default class ChefProfile extends Component {
                 return response.json();
             })
             .then(data => {
-                console.log(data)
-                console.log(data.want_id[0].leaf)
                 this.setState({ userInfo: data, isLoading: false })
             })
             .catch(err => {
                 console.log(err)
             })
+    }
+
+    componentWillMount() {
+       this.fetch();
     };
-
-
-    // componentDidMount() {
-    //     this.getUser();
-    // }
 
     formSubmit = (e) => {
         e.preventDefault();
         let newOrder = {
-            leaf: this.state.leaf,
-            root: this.state.root,
-            legume: this.state.legume,
-            night: this.state.night
+            name: this.state.name,
+            amount: this.state.amount,
+            units: this.state.units,
+            profile_id: this.state.userInfo._id
         }
+        console.log(newOrder)
 
         const init = {
             method: 'POST',
@@ -69,8 +67,32 @@ export default class ChefProfile extends Component {
             .then((response) => {
                 return response.json();
             })
-        // console.log(response)
+            .then(() => {
+            })
+            .catch(err => {
+                console.log(err)
+            })
     }
+
+    componentDidUpdate() {
+        this.fetch();
+    }
+
+    // deleteItem = (event) => {
+    //     fetch(baseUrl + 'inventory/deleteItem/' + event.target.id, {
+    //         method: 'DELETE'
+    //     })
+    //     .then((resp) => {
+    //         return resp.json();
+    //     })
+    //     .then((msg) => {
+    //         console.log(msg.msg);
+    //         this.getInventory();
+    //     })
+    //     .catch((err) => {
+    //         console.error('Caught error: ' + err);
+    //     })
+    // }
 
     handleChange = (e) => {
         this.setState({
@@ -88,6 +110,7 @@ export default class ChefProfile extends Component {
 
 
     render() {
+        console.log(this.state.userInfo._id)
         if (this.state.userInfo.want_id) {
             let rows = this.state.userInfo.want_id
                 .map((item) => {
@@ -115,33 +138,33 @@ export default class ChefProfile extends Component {
                                         <div className='first'>
                                             <label>
                                                 Business name
-                                <input type='text' />
+                                                <input type='text' />
                                             </label>
                                             <label>
                                                 Phone number
-                                <input type='text' />
+                                                <input type='text' />
                                             </label>
                                         </div>
                                         <div className='second'>
                                             <label>
                                                 Address
-                                <input type='text' />
+                                                <input type='text' />
                                             </label>
                                         </div>
                                         <div className='first'>
                                             <label>
                                                 City
-                                <input type='text' />
+                                                <input type='text' />
                                             </label>
                                             <label>
                                                 Country
-                                <input type='text' />
+                                                <input type='text' />
                                             </label>
                                         </div>
                                         <div className='first'>
                                             <label>
                                                 Province
-                                <select className='prov'>
+                                                <select className='prov'>
                                                     <option>Select</option>
                                                     <option>Alberta</option>
                                                     <option>British Columbia</option>
@@ -169,7 +192,7 @@ export default class ChefProfile extends Component {
                                         <div className='first'>
                                             <label>
                                                 Produce
-                                        <select name='name' value={this.state.name} onChange={this.handleChange}>
+                                                <select name='name' value={this.state.name} onChange={this.handleChange}>
                                                     <option>Select Produce</option>
                                                     <option>Kale</option>
                                                     <option>Romaine</option>

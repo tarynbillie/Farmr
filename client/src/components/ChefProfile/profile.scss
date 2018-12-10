@@ -83,6 +83,10 @@ $burnt: #272727;
                     margin-top: 2rem;
                     width: 95%;
                     height: 2.5rem;
+                    transition: all 0.3s ease-in-out;
+                    &:hover {
+                        transform: scale(1.1);
+                    }
                 }
                 .first {
                     display: flex;
@@ -153,6 +157,10 @@ $burnt: #272727;
                     width: 50%;
                     height: 2.5rem;
                     margin-top: 1rem;
+                    transition: all 0.3s ease-in-out;
+                    &:hover {
+                        transform: scale(1.1);
+                    }
                 }
             }
         }
@@ -171,16 +179,16 @@ $burnt: #272727;
                 thead {
                         font-size: 14px;
                         font-weight: normal;
-                        color: $well;
                         margin-left: 1rem;
+                        color: $burnt;
                         tr {
                             text-align: left;
                             height: 70px;
-
                         }
                     }
                     tbody {
-                        font-size: 12px;
+                        font-size: 14px;
+                        color: $well;
                         tr {
                             height: 70px;
                             font-weight: 600;
