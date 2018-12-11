@@ -3,6 +3,8 @@ import Header from '../HeaderSide/Header.js';
 import Side from '../HeaderSide/SideNav.js';
 import '../ChefProfile/profile.scss';
 
+const baseUrl = 'http://localhost:8080';
+
 export default class FarmerProfile extends Component {
 
 
@@ -15,6 +17,59 @@ export default class FarmerProfile extends Component {
         amount: '',
         units: '',
         order: []
+    }
+
+
+    fetch = () => {
+        const init = {
+            method: "GET",
+            headers: {
+                // here grab token from localStorager 
+                authorization: `Bearer ${localStorage.getItem('token')}`
+            }
+        }
+        fetch(`${baseUrl}/profile`, init)
+            .then((response) => {
+                return response.json();
+            })
+            .then(data => {
+                this.setState({ userInfo: data, isLoading: false })
+            })
+            .catch(err => {
+                console.log(err)
+            })
+    }
+
+    componentWillMount() {
+        this.fetch();
+     };
+
+    formSubmit = (e) => {
+        e.preventDefault();
+        let newSell = {
+            name: this.state.name,
+            amount: this.state.amount,
+            units: this.state.units,
+            profile_id: this.state.userInfo._id
+        }
+        console.log(newSell)
+
+        const init = {
+            method: 'POST',
+            body: JSON.stringify(newSell),
+            headers: {
+                'content-type': 'application/json'
+            }
+        };
+        fetch(`${baseUrl}/crop`, init)
+            .then((response) => {
+                return response.json();
+            })
+            .then(() => {
+            })
+            .catch(err => {
+                console.log(err)
+            })
     }
 
 
@@ -32,6 +87,10 @@ export default class FarmerProfile extends Component {
         })
     }
 
+    componentDidUpdate() {
+        this.fetch();
+    }
+
 
     render() {
         return (
@@ -43,7 +102,7 @@ export default class FarmerProfile extends Component {
                         <div className='profile'>
                             <h1>Farmer Profile</h1>
                             <form className='form1'>
-                                <h2>Restaurant details</h2>
+                                <h2>Farm details</h2>
                                 <div className='first'>
                                     <label>
                                         Business name
@@ -108,14 +167,16 @@ export default class FarmerProfile extends Component {
                                             <option>Spring Mix</option>
                                             <option>Spinach</option>
                                             <option>Baby Spinach</option>
+                                            <option>Broccoli</option>
+                                            <option>Cauliflower</option>
                                             <option>Turnip</option>
+                                            <option>Eggplant</option>
                                             <option>Raddish</option>
                                             <option>Beet</option>
                                             <option>Carrot</option>
                                             <option>Kidney</option>
                                             <option>Pinto</option>
                                             <option>Peas</option>
-                                            <option>Soybean</option>
                                             <option>Black Bean</option>
                                             <option>Lentils</option>
                                         </select>

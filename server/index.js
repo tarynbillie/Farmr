@@ -4,21 +4,24 @@ cors = require('cors'),
 dotenv = require('dotenv'),
 bcrypt = require('bcrypt'),
 jwt = require('jsonwebtoken'),
-bodyParser = require('body-parser');
+bodyParser = require('body-parser'),
+sgMail = require('@sendgrid/mail');
 
 
 app.use(bodyParser.urlencoded({ extended: false}))
 app.use(bodyParser.json())
 app.use(cors());
 
+// mongoose
 mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost:27017/farmr');
+mongoose.Promise = global.Promise;
 
+// mongoose schemas
 const Profile =  require('./models/Profile');
 const Want = require('./models/Want');
 const Crop = require('./models/Crop');
 
-mongoose.Promise = global.Promise;
 
 // Log to console any errors or a successfull connection
 const db = mongoose.connection;
@@ -30,9 +33,10 @@ db. once('open', () => {
 // this line reads all key value pairs in .env folder
 dotenv.config(); 
 
-// configuration variable is all caps
+// configuration variable is all caps in .env folder
 const PORT = process.env.PORT || 8080;
 const SECRET_KEY = process.env.SECRET_KEY || "v0ei4dhfwjokb9s19qt6rt";
+const SENDGRID_KEY = sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
 
 ///////////////////////////////////////////////////
@@ -143,16 +147,53 @@ app.post('/want', (req, res,next) => {
 });
 
 
-// app.get('/want', (req, res) => {
-//     res.json(profile)
-// });
+app.delete('/want/:id/delete', (req, res, next) => {
+    Want.findByIdAndDelete(req.params.id, (err) => {
+        if (err) {
+            res.status(500).json({error: err})
+            return next(err);
+        }
+        res.json({msg: 'deleted!'});
+    });
+});
+
+/////////////////////////////////////////////////////////////////////////////////////////////////
+
+app.post('/crop', (req, res, next) => {
+    let crop = new Crop({
+        ...req.body
+      });
+      crop.save(err => {
+        if (err) {
+          return next(err);
+        }
+        console.log(crop)
+        res.status(201).send({ 'msg': 'a new crop has been created!!' })
+      });
+
+    Want.find({name: req.body.name})
+    .populate('profile_id')
+      .then(wants => {
+          console.log(wants)
+          // wants is an array
+          // wants[0] gives first want
+          // wants[0].profile_id is also an array with only one thing in it
+          // wants[0].profile_id[0].email will give you the email for want[0]
+          // loop through each want, pull out the email using expression above
+          // once you have each email, do a sendgrid call to send a msg there
+      })
 
 
-// app.delete('/want/deleteItem/:id', (req,res) => {
-//     let orderIndex = want.findIndex(item => item.productID === Number(req.params.id));
-//     invList.splice(itemIndex, 1);
-//     res.json({msg: 'item deleted from inventory'});
-// });
+      Profile.findById(crop.profile_id)
+        .then(profile => {
+          profile.crop_id.push(crop._id);
+          return profile.save();
+      })
+        .catch(err => {
+          console.log(err);
+      });
+});
+
 
 app.listen(PORT, (err) => {
     if (err) {

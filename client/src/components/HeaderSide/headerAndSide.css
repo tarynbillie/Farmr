@@ -131,10 +131,23 @@
   -webkit-box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.15);
           box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.15);
   background-color: #F6F6F6;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+.container .main .header__link {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   text-decoration: none;
 }
 
-.container .main .header h3 {
+.container .main .header__link:hover {
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
+}
+
+.container .main .header__link h3 {
   font-family: 'Georgia';
   color: #272727;
   margin: 0;
@@ -142,11 +155,7 @@
   cursor: pointer;
 }
 
-.container .main .header h3:hover {
-  font-weight: bold;
-}
-
-.container .main .header img {
+.container .main .header__link img {
   width: 17px;
 }
 

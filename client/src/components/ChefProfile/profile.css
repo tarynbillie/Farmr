@@ -16,6 +16,7 @@
 
 .main .container .profile {
   margin: 0 4rem;
+  width: 40%;
 }
 
 .main .container .profile h1 {
@@ -49,7 +50,7 @@
   color: #FFF;
   cursor: pointer;
   margin-top: 2rem;
-  width: 95%;
+  width: 41.3%;
   height: 2.5rem;
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
@@ -89,7 +90,7 @@
   background-color: #FFF;
   padding-left: 14px;
   outline: none;
-  width: 100%;
+  width: 16rem;
 }
 
 .main .container .profile .form1 .first label select {
@@ -109,7 +110,7 @@
   background-position: 97%;
   padding-left: 1rem;
   padding-right: 1.5rem;
-  width: 100%;
+  width: 17rem;
 }
 
 .main .container .profile .form1 .second label {
@@ -123,7 +124,7 @@
   font-family: 'Open Sans';
   margin-top: 1rem;
   font-size: 14px;
-  width: 97%;
+  width: 36rem;
 }
 
 .main .container .profile .form1 .second label input {
@@ -177,7 +178,7 @@
   font-family: 'Open Sans';
   margin-top: 1rem;
   font-size: 14px;
-  margin-right: 2rem;
+  margin-right: 3rem;
 }
 
 .main .container .wants .form2 .first label select {
@@ -228,7 +229,7 @@
           justify-content: center;
   font-family: 'Open Sans';
   font-size: 12px;
-  margin-top: 3rem;
+  margin: 3rem 0 1.8rem 0;
   -webkit-box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.15);
           box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.15);
 }
@@ -241,20 +242,41 @@
 }
 
 .main .container .orders table thead {
-  font-size: 14px;
+  font-size: 16px;
   font-weight: normal;
-  margin-left: 1rem;
   color: #272727;
 }
 
 .main .container .orders table thead tr {
+  display: block;
   text-align: left;
   height: 70px;
+}
+
+.main .container .orders table thead tr .one {
+  padding-right: 3.2rem;
+  padding-left: 1rem;
+}
+
+.main .container .orders table thead tr .two {
+  padding-right: 2rem;
+}
+
+.main .container .orders table thead tr .three {
+  padding-right: 6rem;
+}
+
+.main .container .orders table thead tr th {
+  padding-top: 1.5rem;
 }
 
 .main .container .orders table tbody {
   font-size: 14px;
   color: #484848;
+  display: block;
+  width: 100%;
+  height: 35vh;
+  overflow: auto;
 }
 
 .main .container .orders table tbody tr {
@@ -263,6 +285,8 @@
 }
 
 .main .container .orders table tbody tr td {
+  padding-left: 1rem;
+  padding-right: 2.5rem;
   margin: 0;
 }
 
@@ -275,10 +299,6 @@
 
 .main .container .orders table tbody tr:nth-child(odd) {
   background-color: white;
-}
-
-.td-left {
-  padding-left: 35px;
 }
 
 .orders__delete-icon {

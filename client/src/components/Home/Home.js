@@ -4,6 +4,8 @@ import Login from '../Login/Login';
 import Register from '../Register/Register';
 import './home.scss';
 
+
+
 export default class Home extends Component {
 
 
@@ -39,7 +41,17 @@ export default class Home extends Component {
 
   formSubmit = (e) => {
     e.preventDefault();
+
+    const msg = {
+      to: 'tarynli@hotmail.com',
+      from: email.value,
+      subject: 'Email from FARMR client',
+      text: 'Hello, You\'ve connected with Farmer ',
+      html: '<strong>and easy to do anywhere, even with Node.js</strong>',
+    };
   }
+
+
 
   // formReset() {
   //   this.setState({

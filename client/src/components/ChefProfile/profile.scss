@@ -64,6 +64,7 @@ $burnt: #272727;
         display: flex;
         .profile {
             margin: 0 4rem;
+            width: 40%;
             h1 {
                 padding-top: 1rem;
                 font-family: 'Open Sans';
@@ -81,7 +82,7 @@ $burnt: #272727;
                 button {
                     @include btn();
                     margin-top: 2rem;
-                    width: 95%;
+                    width: 41.3%;
                     height: 2.5rem;
                     transition: all 0.3s ease-in-out;
                     &:hover {
@@ -95,7 +96,7 @@ $burnt: #272727;
                         margin-right: 2rem;
                         input {
                             @include input();
-                            width: 100%;
+                            width: 16rem;
                         }
                         select {
                             @include select();
@@ -105,14 +106,14 @@ $burnt: #272727;
                             background-position: 97%;
                             padding-left: 1rem;
                             padding-right: 1.5rem;
-                            width: 100%;
+                            width: 17rem;
                         }
                     }
                 }
                 .second {
                     label {
                         @include label();
-                        width: 97%;
+                        width: 36rem;
                         input {
                             @include input();
                         }
@@ -139,7 +140,7 @@ $burnt: #272727;
                     display: flex;
                     label {
                         @include label();
-                        margin-right: 2rem;
+                        margin-right: 3rem;
                         select {
                             @include select();
                             background: url(../../assets/Dropdown.svg) no-repeat;
@@ -169,7 +170,7 @@ $burnt: #272727;
             justify-content: center;
             font-family: 'Open Sans';
             font-size: 12px;
-            margin-top: 3rem;
+            margin: 3rem 0 1.8rem 0;
             box-shadow: 0 3px 8px 0 rgba(0,0,0,0.15);
             table {
                 width: 100%;
@@ -177,43 +178,62 @@ $burnt: #272727;
                 border-radius: 3px;
                 background-color: $mediumRare;
                 thead {
-                        font-size: 14px;
-                        font-weight: normal;
-                        margin-left: 1rem;
-                        color: $burnt;
-                        tr {
-                            text-align: left;
-                            height: 70px;
+                    font-size: 16px;
+                    font-weight: normal;
+                    color: $burnt;
+                    tr {
+                        display: block;
+                        text-align: left;
+                        height: 70px;
+                        .one{
+                            padding-right: 3.2rem;
+                            padding-left: 1rem;
+                        }
+                        .two {
+                            padding-right: 2rem;
+                        }
+                        .three {
+                            padding-right: 6rem;
+
+                        }
+                        th {
+                            padding-top: 1.5rem;
                         }
                     }
-                    tbody {
-                        font-size: 14px;
-                        color: $well;
-                        tr {
-                            height: 70px;
-                            font-weight: 600;
-                            td {
-                                margin: 0;
-                                .td-name {
-                                    color: $accent;
-                                    display: block;
-                                    font-size: 14px;
-                                    font-weight: 600;
-                                }
+                }
+                tbody {
+                    font-size: 14px;
+                    color: $well;
+                    display:block;
+                    width: 100%;
+                    height: 35vh;
+                    overflow: auto;
+                    tr {
+                        height: 70px;
+                        font-weight: 600;
+                        td {
+                            padding-left: 1rem;
+                            padding-right: 2.5rem;
+                            margin: 0;
+                            .td-name {
+                                color: $accent;
+                                display: block;
+                                font-size: 14px;
+                                font-weight: 600;
                             }
                         }
+                    }
                     tr:nth-child(odd) {
                         background-color: white;
                     }
                 }
+                
             }
         }
     }
 }
 
-.td-left{
-    padding-left: 35px;
-}
+
 .orders__delete-icon{
     background-image: url('../../assets/deleteIcon.svg');
     background-size: cover;

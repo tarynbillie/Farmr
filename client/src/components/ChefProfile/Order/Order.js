@@ -1,8 +1,14 @@
 import React, { Component } from 'react'
 import '../profile.scss';
 
+// const baseUrl = 'http://localhost:8080';
 
 export default class Order extends Component {
+
+
+
+   
+
     render() {
         return (
             <tr>
@@ -19,7 +25,7 @@ export default class Order extends Component {
                     {this.props.date_created}
                 </td>
                 <td>
-                    <div className='orders__delete-icon' id={this.props.id} onClick={this.props.delete}></div>
+                    <div className='orders__delete-icon' onClick={()=>this.props.deleteItem(this.props.id)}></div>
                 </td>
             </tr>
         )

@@ -133,19 +133,23 @@ $burnt: #272727;
             height: 4.5rem;
             box-shadow: 0 3px 8px 0 rgba(0,0,0,0.15);
             background-color: $mediumRare;
-            text-decoration: none;
-            h3 {
-                font-family: 'Georgia';
-                color: $burnt;
-                margin: 0;
-                font-weight: normal;
-                cursor: pointer;
+            transition: all 0.3s ease-in-out;
+            &__link {
+                display: flex;
+                text-decoration: none;
                 &:hover {
-                    font-weight: bold;
+                    transform: scale(1.05);
                 }
-            }
-            img {
-                width: 17px;
+                h3 {
+                    font-family: 'Georgia';
+                    color: $burnt;
+                    margin: 0;
+                    font-weight: normal;
+                    cursor: pointer;
+                }
+                img {
+                    width: 17px;
+                }
             }
             &__gear {
                 width: 93%;
