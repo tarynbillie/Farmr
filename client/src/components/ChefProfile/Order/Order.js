@@ -1,13 +1,8 @@
 import React, { Component } from 'react'
 import '../profile.scss';
 
-// const baseUrl = 'http://localhost:8080';
-
 export default class Order extends Component {
 
-
-
-   
 
     render() {
         return (
