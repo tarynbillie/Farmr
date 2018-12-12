@@ -105,6 +105,7 @@ export default class ChefProfile extends Component {
             let rows = this.state.userInfo.want_id
                 .map((item) => {
                     return <Order
+                        key={item._id}
                         id={item._id}
                         name={item.name}
                         amount={item.amount}

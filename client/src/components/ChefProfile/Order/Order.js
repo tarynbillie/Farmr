@@ -7,7 +7,7 @@ export default class Order extends Component {
     render() {
         return (
             <tr key='tablerow'>
-                <td className='td-left' key=''>
+                <td className='td-left'>
                     {this.props.name}
                 </td>
                 <td>

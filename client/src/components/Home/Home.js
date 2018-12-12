@@ -126,7 +126,7 @@ export default class Home extends Component {
           </div>
           <div className='second-column'>
             <h1>Contact Us</h1>
-            <form onSubmit={this.formSubmit} formReset={this.formReset}>
+            <form onSubmit={this.formSubmit} >
               <div className='first'>
                 <label>
                   Name

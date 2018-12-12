@@ -54,14 +54,14 @@ export default class Register extends Component {
         e.preventDefault();
     }
 
-    formReset() {
-        this.setState({
-            username: '',
-            email: '',
-            password: '',
-            errorMsg: ''
-        })
-    }
+    // formReset() {
+    //     this.setState({
+    //         username: '',
+    //         email: '',
+    //         password: '',
+    //         errorMsg: ''
+    //     })
+    // }
 
     render() {
         // const { isSignUpError, errorMessage } = this.state
@@ -71,7 +71,7 @@ export default class Register extends Component {
                 <div className='modal-layer' onClick={this.props.handleClose} style={modal}></div>
                 <div className="form-container" style={form}>
                     <h1>Create your account</h1>
-                    <form onSubmit={this.formSubmit} formReset={this.formReset}>
+                    <form onSubmit={this.formSubmit} >
                         <label>
                             Username
                             <input type='text' name='username' value={this.state.username} onChange={this.handleChange} />

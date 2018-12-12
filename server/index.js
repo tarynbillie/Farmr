@@ -36,7 +36,7 @@ dotenv.config();
 // configuration variable is all caps in .env folder
 const PORT = process.env.PORT || 8080;
 const SECRET_KEY = process.env.SECRET_KEY || "v0ei4dhfwjokb9s19qt6rt";
-const SENDGRID_KEY = sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+const SENDGRID_KEY = sgMail.setApiKey('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');
 
 
 ///////////////////////////////////////////////////
@@ -161,6 +161,7 @@ app.delete('/want/:id/delete', (req, res, next) => {
 /////////////////////////////////////////////////////////////////////////////////////////////////
 
 app.post('/crop', (req, res, next) => {
+    let farmer;
     let crop = new Crop({
         ...req.body
       });
@@ -172,6 +173,7 @@ app.post('/crop', (req, res, next) => {
       });
       Profile.findById(crop.profile_id)
       .then(profile => {
+          farmer = profile;
         profile.crop_id.push(crop._id);
         return profile.save();
     })
@@ -185,14 +187,22 @@ app.post('/crop', (req, res, next) => {
     .populate('profile_id')
       .then(wants => {
           for(let i = 0; i < wants.length; i++) {
-              if(wants[0].profile_id[0].email)
-                push(emails); 
-                  return
-                }
-                console.log(emails)
+              if(wants[0].profile_id[0].email){
+                emails.push(wants[0].profile_id[0].email);
+              }
+          }
+          console.log(emails)
             // console.log(JSON.stringify(wants))
           // wants[0].profile_id[0].email will give you the email for want[0]
-          console.log(wants[0].profile_id[0].email)
+
+          const msg = {
+            to: emails,
+            from: 'farmr@farmer.io',
+            subject: 'We found your future farmer!',
+            text: `Hello Chef, Farmr has found you a farmer ${farmer.username} selling what you\'re looking for. Please go to Farmr and log into your account`,
+            html: `Hello Chef, Farmr has found you a farmer ${farmer.username} selling what you\'re looking for. Please go to Farmr and log into your account`,
+          };
+          sgMail.send(msg);
           // loop through each want, pull out the email using expression above
           // once you have each email, do a sendgrid call to send a msg there
         //   sgMail.send(msg);

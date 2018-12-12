@@ -8,9 +8,9 @@ export default class Header extends Component {
     render() {
         return (
             <div className='header'>
-                <Link to={'/home'} className='header__link'>
+                <Link to={'/home'} className='header__link' onClick={() => localStorage.clear()}>
                     <img src='../../assets/arrow_back.svg' alt='back arrow' />
-                    <h3>Home</h3>
+                    <h3>Log out</h3>
                 </Link>
                 <div className='header__gear'>
                     <img src='../../assets/Settings-gear.svg' alt='settings' />

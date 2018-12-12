@@ -86,7 +86,7 @@ class Login extends Component {
         <div className='modal-layer' onClick={this.props.handleClose} style={modalLayer}></div>
         <div className="form-container" style={formModal}>
           <h1>Log in to your account</h1>
-          <form onSubmit={this.formSubmit} formReset={this.formReset}>
+          <form onSubmit={this.formSubmit} >
             <label>
               Email address
                       <input type='email' name='email' value={this.state.email} onChange={this.handleChange} />

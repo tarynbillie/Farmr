@@ -90,13 +90,13 @@ export default class FarmerProfile extends Component {
         })
     }
 
-    formReset() {
-        this.setState({
-            name: '',
-            amount: '',
-            units: ''
-        })
-    }
+    // formReset() {
+    //     this.setState({
+    //         name: '',
+    //         amount: '',
+    //         units: ''
+    //     })
+    // }
 
 
     render() {
@@ -104,6 +104,7 @@ export default class FarmerProfile extends Component {
             let rows = this.state.userInfo.want_id
                 .map((item) => {
                     return <Have
+                        key={item._id}
                         id={item._id}
                         name={item.name}
                         amount={item.amount}
@@ -175,7 +176,7 @@ export default class FarmerProfile extends Component {
                             </div>
                             <div className='wants'>
                                 <h1>Produce</h1>
-                                <form className='form2' onSubmit={this.formSubmit} formReset={this.formReset}>
+                                <form className='form2' onSubmit={this.formSubmit} >
                                     <h2>What do you have?</h2>
                                     <div className='first'>
                                         <label>
