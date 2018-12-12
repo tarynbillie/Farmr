@@ -26,7 +26,7 @@ const Crop = require('./models/Crop');
 // Log to console any errors or a successfull connection
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
-db. once('open', () => {
+db.once('open', () => {
     console.log('Connected to db at /data/db/')
 });
 
@@ -54,7 +54,6 @@ app.post('/register', (req, res)=>{
     let User = new Profile(newUser)
     User.save()
     .then(savedUser => {
-        console.log(savedUser);
         res.status(201).json({"msg": "success"});
     })
     .catch(err => {
@@ -83,6 +82,9 @@ app.post('/login', (req, res) => {
               res.status(401).json({'msg': "invalid credentials", login:false});
             }
         })
+    })
+    .catch(err => {
+        console.log(err);
     })
 })
 
@@ -133,7 +135,6 @@ app.post('/want', (req, res,next) => {
         if (err) {
           return next(err);
         }
-        console.log(want)
         res.status(201).send({ 'msg': 'a new want has been created!!' })
       });
       Profile.findById(want.profile_id)
@@ -153,7 +154,7 @@ app.delete('/want/:id/delete', (req, res, next) => {
             res.status(500).json({error: err})
             return next(err);
         }
-        res.json({msg: 'deleted!'});
+        res.json({msg: 'deleted want!'});
     });
 });
 
@@ -167,32 +168,49 @@ app.post('/crop', (req, res, next) => {
         if (err) {
           return next(err);
         }
-        console.log(crop)
-        res.status(201).send({ 'msg': 'a new crop has been created!!' })
+        res.status(200).send({ 'msg': 'a new crop has been created!!' })
       });
+      Profile.findById(crop.profile_id)
+      .then(profile => {
+        profile.crop_id.push(crop._id);
+        return profile.save();
+    })
+      .catch(err => {
+        console.log(err);
+    });
+
+    const emails = []
 
     Want.find({name: req.body.name})
     .populate('profile_id')
       .then(wants => {
-          console.log(wants)
-          // wants is an array
-          // wants[0] gives first want
-          // wants[0].profile_id is also an array with only one thing in it
+          for(let i = 0; i < wants.length; i++) {
+              if(wants[0].profile_id[0].email)
+                push(emails); 
+                  return
+                }
+                console.log(emails)
+            // console.log(JSON.stringify(wants))
           // wants[0].profile_id[0].email will give you the email for want[0]
+          console.log(wants[0].profile_id[0].email)
           // loop through each want, pull out the email using expression above
           // once you have each email, do a sendgrid call to send a msg there
-      })
+        //   sgMail.send(msg);
+        //     res.status(200).send({ 'msg': 'your request has been sent' });
+        }) 
 
-
-      Profile.findById(crop.profile_id)
-        .then(profile => {
-          profile.crop_id.push(crop._id);
-          return profile.save();
-      })
-        .catch(err => {
-          console.log(err);
-      });
 });
+
+// app.delete('/crop/:id/delete', (req, res, next) => {
+//     Want.findByIdAndDelete(req.params.id, (err) => {
+//         if (err) {
+//             res.status(500).json({error: err})
+//             return next(err);
+//         }
+//         res.json({msg: 'deleted crop!'});
+//     });
+// });
+
 
 
 app.listen(PORT, (err) => {

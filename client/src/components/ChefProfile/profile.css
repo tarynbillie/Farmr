@@ -15,8 +15,8 @@
 }
 
 .main .container .profile {
-  margin: 0 4rem;
-  width: 40%;
+  margin: 0 3rem;
+  width: 35%;
 }
 
 .main .container .profile h1 {
@@ -33,7 +33,7 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  width: 100%;
+  width: 90%;
 }
 
 .main .container .profile .form1 h2 {
@@ -50,7 +50,7 @@
   color: #FFF;
   cursor: pointer;
   margin-top: 2rem;
-  width: 41.3%;
+  width: 60%;
   height: 2.5rem;
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
@@ -78,7 +78,7 @@
   font-family: 'Open Sans';
   margin-top: 1rem;
   font-size: 14px;
-  margin-right: 2rem;
+  margin-right: 1rem;
 }
 
 .main .container .profile .form1 .first label input {
@@ -90,7 +90,7 @@
   background-color: #FFF;
   padding-left: 14px;
   outline: none;
-  width: 16rem;
+  width: 14rem;
 }
 
 .main .container .profile .form1 .first label select {
@@ -110,7 +110,7 @@
   background-position: 97%;
   padding-left: 1rem;
   padding-right: 1.5rem;
-  width: 17rem;
+  width: 15rem;
 }
 
 .main .container .profile .form1 .second label {
@@ -124,7 +124,6 @@
   font-family: 'Open Sans';
   margin-top: 1rem;
   font-size: 14px;
-  width: 36rem;
 }
 
 .main .container .profile .form1 .second label input {
@@ -136,6 +135,11 @@
   background-color: #FFF;
   padding-left: 14px;
   outline: none;
+  width: 30rem;
+}
+
+.main .container .wants {
+  margin-left: 3rem;
 }
 
 .main .container .wants h1 {
@@ -286,7 +290,7 @@
 
 .main .container .orders table tbody tr td {
   padding-left: 1rem;
-  padding-right: 2.5rem;
+  padding-right: 2rem;
   margin: 0;
 }
 

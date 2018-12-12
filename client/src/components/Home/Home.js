@@ -8,7 +8,15 @@ import './home.scss';
 
 export default class Home extends Component {
 
-
+  constructor() {
+    super()
+    this.aboutRef = React.createRef();
+    this.contactRef = React.createRef();
+  }
+  scroll(ref) {
+    ref.current.scrollIntoView({behavior: 'smooth'})
+  }
+  
   state = {
     isOpen1: false,
     isOpen2: false
@@ -42,13 +50,13 @@ export default class Home extends Component {
   formSubmit = (e) => {
     e.preventDefault();
 
-    const msg = {
-      to: 'tarynli@hotmail.com',
-      from: email.value,
-      subject: 'Email from FARMR client',
-      text: 'Hello, You\'ve connected with Farmer ',
-      html: '<strong>and easy to do anywhere, even with Node.js</strong>',
-    };
+    // const msg = {
+    //   to: 'tarynli@hotmail.com',
+    //   from: email.value,
+    //   subject: 'Email from FARMR client',
+    //   text: 'Hello, You\'ve connected with Farmer ',
+    //   html: '<strong>and easy to do anywhere, even with Node.js</strong>',
+    // };
   }
 
 
@@ -73,12 +81,8 @@ export default class Home extends Component {
             <div className='header__nav'>
               <Login handleClose={this.hideModal1} isOpen={this.state.isOpen1} />
               <Register handleClose={this.hideModal2} isOpen={this.state.isOpen2} />
-              <a href='#section1'>
-                <h3>About</h3>
-              </a>
-              <a href='#section2'>
-              <h3>Contact</h3>
-              </a>
+                <h3 onClick={() => {this.scroll(this.aboutRef)}}>About</h3>
+              <h3 onClick={() => {this.scroll(this.contactRef)}}>Contact</h3>
               <h3 className='header__log' onClick={this.showModal1}>Login</h3>
               <button className='signup-btn' onClick={this.showModal2}>Sign up</button>
             </div>
@@ -92,7 +96,7 @@ export default class Home extends Component {
             </div>
           </div>
         </section>
-        <section className='about-container' id='section1'>
+        <section className='about-container' ref={this.aboutRef}>
           <div className='about-container__background'>
             <div className='about-us'>
               <h3>ABOUT US</h3>
@@ -104,7 +108,7 @@ export default class Home extends Component {
             <img src='../assets/About.jpg' alt='bowl of food' />
           </div>
         </section>
-        <footer className='contact-container' id='section2'>
+        <footer className='contact-container' ref={this.contactRef}>
           <div className='first-column'>
             <h2>FARMR</h2>
             <div className='first-column__icon'>

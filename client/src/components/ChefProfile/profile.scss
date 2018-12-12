@@ -63,8 +63,9 @@ $burnt: #272727;
     .container {
         display: flex;
         .profile {
-            margin: 0 4rem;
-            width: 40%;
+            margin: 0 3rem;
+            width: 35%;
+            // width: 40%;
             h1 {
                 padding-top: 1rem;
                 font-family: 'Open Sans';
@@ -73,7 +74,8 @@ $burnt: #272727;
             .form1 {
                 display: flex;
                 flex-direction: column;
-                width: 100%;
+                width: 90%;
+                // width: 100%;
                 h2 {
                     font-family: 'Open Sans';
                     font-weight: normal;
@@ -82,7 +84,8 @@ $burnt: #272727;
                 button {
                     @include btn();
                     margin-top: 2rem;
-                    width: 41.3%;
+                    // width: 41.3%;
+                    width: 60%;
                     height: 2.5rem;
                     transition: all 0.3s ease-in-out;
                     &:hover {
@@ -93,10 +96,11 @@ $burnt: #272727;
                     display: flex;
                     label {
                         @include label();
-                        margin-right: 2rem;
+                        margin-right: 1rem;
                         input {
                             @include input();
-                            width: 16rem;
+                            // width: 16rem;
+                            width: 14rem;
                         }
                         select {
                             @include select();
@@ -106,22 +110,25 @@ $burnt: #272727;
                             background-position: 97%;
                             padding-left: 1rem;
                             padding-right: 1.5rem;
-                            width: 17rem;
+                            // width: 17rem;
+                            width: 15rem;
                         }
                     }
                 }
                 .second {
                     label {
                         @include label();
-                        width: 36rem;
+                        // width: 36rem;
                         input {
                             @include input();
+                            width: 30rem;
                         }
                     }
                 }
             }
         }
         .wants {
+            margin-left: 3rem;
             h1 {
                 padding-top: 1rem;
                 font-family: 'Open Sans';
@@ -213,7 +220,7 @@ $burnt: #272727;
                         font-weight: 600;
                         td {
                             padding-left: 1rem;
-                            padding-right: 2.5rem;
+                            padding-right: 2rem;
                             margin: 0;
                             .td-name {
                                 color: $accent;

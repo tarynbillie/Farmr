@@ -71,10 +71,6 @@ export default class ChefProfile extends Component {
             })
     }
 
-    // componentDidUpdate(prevProp) {
-    //     this.fetch();
-    // }
-
     deleteItem = (id) => {
         const init = {
             method: 'DELETE'
@@ -94,13 +90,13 @@ export default class ChefProfile extends Component {
         })
     }
 
-    formReset() {
-        this.setState({
-            name: '',
-            amount: '',
-            units: ''
-        })
-    }
+    // formReset = () => {
+    //     this.setState({
+    //         name: '',
+    //         amount: '',
+    //         units: ''
+    //     })
+    // }
 
 
     render() {
@@ -181,7 +177,7 @@ export default class ChefProfile extends Component {
                             </div>
                             <div className='wants'>
                                 <h1>Produce</h1>
-                                <form className='form2' onSubmit={this.formSubmit} formReset={this.formReset}>
+                                <form className='form2' onSubmit={this.formSubmit} >
                                     <h2>What are you looking for?</h2>
                                     <div className='first'>
                                         <label>
@@ -237,7 +233,7 @@ export default class ChefProfile extends Component {
                                 </form>
                                 <div className='orders'>
                                     <table>
-                                        <thead>
+                                        <thead key='thead'>
                                             <tr>
                                                 <th className='one'>
                                                     Item
@@ -253,7 +249,7 @@ export default class ChefProfile extends Component {
                                                 </th>
                                             </tr>
                                         </thead>
-                                            <tbody>
+                                            <tbody key='tbody'>
                                                 {rows}
                                             </tbody>
                                     </table>

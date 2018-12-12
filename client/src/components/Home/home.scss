@@ -79,9 +79,6 @@ $burnt: #272727;
                     height: 36px;
                     width: 114px;
                 }
-                a {
-                    text-decoration: none;
-                }
             }
         }
         &__blurb {
@@ -236,7 +233,8 @@ $burnt: #272727;
                 input {
                     @include input();
                     height: 39px;
-                    width: 21.5rem;
+                    // width: 21.5rem;
+                    width: 15.5rem;
                     fill: $rare;
                 }
                 .input-message {
@@ -271,7 +269,8 @@ $burnt: #272727;
         .copy {
             color: white;
             position: absolute;
-            margin-top: 40rem;;
+            // margin-top: 40rem;
+            margin-top: 33rem;
             margin-left: 12rem;
             h5 {
                 margin: 0;
