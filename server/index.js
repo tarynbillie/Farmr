@@ -35,8 +35,8 @@ dotenv.config();
 
 // configuration variable is all caps in .env folder
 const PORT = process.env.PORT || 8080;
-const SECRET_KEY = process.env.SECRET_KEY || "v0ei4dhfwjokb9s19qt6rt";
-const SENDGRID_KEY = sgMail.setApiKey('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');
+const SECRET_KEY = process.env.SECRET_KEY;
+sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
 
 ///////////////////////////////////////////////////
@@ -51,6 +51,7 @@ app.post('/register', (req, res)=>{
             return res.status(500).json({'msg': 'we messed up, oops', login:false})
         }
       newUser.password = hash;
+
     let User = new Profile(newUser)
     User.save()
     .then(savedUser => {
@@ -186,15 +187,16 @@ app.post('/crop', (req, res, next) => {
     Want.find({name: req.body.name})
     .populate('profile_id')
       .then(wants => {
+          // loop through each want
           for(let i = 0; i < wants.length; i++) {
+              // wants[0].profile_id[0].email will give you the email for want[0]
               if(wants[0].profile_id[0].email){
                 emails.push(wants[0].profile_id[0].email);
               }
           }
           console.log(emails)
-            // console.log(JSON.stringify(wants))
-          // wants[0].profile_id[0].email will give you the email for want[0]
 
+          // once you have each email, do a sendgrid call to send a msg there
           const msg = {
             to: emails,
             from: 'farmr@farmer.io',
@@ -203,10 +205,7 @@ app.post('/crop', (req, res, next) => {
             html: `Hello Chef, Farmr has found you a farmer ${farmer.username} selling what you\'re looking for. Please go to Farmr and log into your account`,
           };
           sgMail.send(msg);
-          // loop through each want, pull out the email using expression above
-          // once you have each email, do a sendgrid call to send a msg there
-        //   sgMail.send(msg);
-        //     res.status(200).send({ 'msg': 'your request has been sent' });
+            res.status(200).send({ 'msg': 'your request has been sent' });
         }) 
 
 });

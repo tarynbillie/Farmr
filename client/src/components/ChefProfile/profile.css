@@ -258,16 +258,16 @@
 }
 
 .main .container .orders table thead tr .one {
-  padding-right: 3.2rem;
+  padding-right: 4.8rem;
   padding-left: 1rem;
 }
 
 .main .container .orders table thead tr .two {
-  padding-right: 2rem;
+  padding-right: 2.5rem;
 }
 
 .main .container .orders table thead tr .three {
-  padding-right: 6rem;
+  padding-right: 4.8rem;
 }
 
 .main .container .orders table thead tr th {
@@ -290,7 +290,7 @@
 
 .main .container .orders table tbody tr td {
   padding-left: 1rem;
-  padding-right: 2rem;
+  padding-right: 2.8rem;
   margin: 0;
 }
 
